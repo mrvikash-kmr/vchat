@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>vChat Contacts Glassy Nav</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f49d25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#16110a",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-nav {
+            background: rgba(34, 26, 16, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white min-h-screen">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-30 flex items-center bg-background-dark/80 backdrop-blur-md px-4 py-4 justify-between border-b border-white/5">
+<div class="text-white flex size-10 items-center justify-center">
+<span class="material-symbols-outlined text-2xl">search</span>
+</div>
+<h2 class="text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center">Contacts</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex cursor-pointer items-center justify-center rounded-full h-10 w-10 bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-2xl">person_add</span>
+</button>
+</div>
+</header>
+<main class="pb-32 px-4">
+<!-- Search Bar -->
+<div class="py-4">
+<label class="flex flex-col w-full">
+<div class="flex w-full items-stretch rounded-xl h-12 glass-card">
+<div class="text-primary/70 flex items-center justify-center pl-4">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="form-input flex w-full border-none bg-transparent focus:ring-0 text-white placeholder:text-white/40 px-3 text-base" placeholder="Search friends..." value=""/>
+</div>
+</label>
+</div>
+<!-- Favorites Section -->
+<div class="mb-6">
+<h3 class="text-white/60 text-xs font-bold uppercase tracking-widest pb-3 px-1">Favorites</h3>
+<div class="flex items-center gap-4 overflow-x-auto no-scrollbar py-2">
+<!-- Favorite 1 -->
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="relative">
+<div class="size-16 rounded-full border-2 border-primary p-0.5">
+<div class="size-full rounded-full bg-cover bg-center" data-alt="User avatar of a smiling young man" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCUiq61yMnepqw05QJoVSGLKlNQ_h9V2eNs6qZ2qA_0KVPz65iqdV8uVtSRfQ4hCSKag_LZSiMbDeOxvwprIcEH2_bvoxf7AfyZt4XYDIVIw-nuLtv-2e0Xfz9Fuh8lcdHuOyySbi61EWiaN4DVKw1VjnfSj5whTSNsQ-OM6ah2lMVIGDVVZHA4CM_JKdPCNgebeSmdgWaZcSD4cvAuKl9kBgcKJPlIUPc7zA-nX3akOToiDlZZi8fqFdtALglvNtb_l_OOmB-CuNu_');"></div>
+</div>
+<div class="absolute bottom-0 right-0 size-4 bg-green-500 border-2 border-background-dark rounded-full"></div>
+</div>
+<span class="text-xs font-medium text-white/90">Alex</span>
+</div>
+<!-- Favorite 2 -->
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="size-16 rounded-full border-2 border-primary/30 p-0.5">
+<div class="size-full rounded-full bg-cover bg-center" data-alt="User avatar of a professional woman" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuALo38eS69jwMRVreH2Einj0a9T7mMD7u3445FSWsVfYMP36B_FOYyaLDcgm61Q0aInIhP5s9HWLjemqQV9JUhtii5uRd-V7aaWwRW_omTyefND4m9L_NeOow6wHh9aLfXkGpF465EEaH91yFC0u1NlIwPbux75SEUfgH-EFYoOPaz9GfgfzoT3o9URlygdwx2pktDyCNtY8C1MqXVEjLVeDE9yVkl8a2ZS6MSsbY51hXN-SkyGMsZtB9OxYednY5utOoEmGuLWLfx7');"></div>
+</div>
+<span class="text-xs font-medium text-white/90">Sarah</span>
+</div>
+<!-- Favorite 3 -->
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="size-16 rounded-full border-2 border-primary/30 p-0.5">
+<div class="size-full rounded-full bg-cover bg-center" data-alt="User avatar of a man with glasses" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDawZgpAqpJnKq_U8b3XDIb4SGGuCUIkiF87JJfegVf19qe2Vv8IcAZhXdr9AXLDLsIt9IJYKSG_qr2wH0V7XaAHtsB4jFWhd2E0XwkkqxDhtvYDqTKdGIPZMcrRPHIQAHU0LOq5YhQKSTcJqlw6-CwNvHqpZ_3BpYkcQJcxWu6x_OUABum5GnEavoH4_NcnGHfcM0N1nLVEEGiVJ_V7uR27zzCuUqCGmEYyQIfcqlmhvDEu0nEV1zmT2SuL0ZBrP7sONph5wcOSmrh');"></div>
+</div>
+<span class="text-xs font-medium text-white/90">Jordan</span>
+</div>
+<!-- Favorite 4 -->
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="size-16 rounded-full border-2 border-primary/30 p-0.5">
+<div class="size-full rounded-full bg-cover bg-center" data-alt="User avatar of a creative artist" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDHqaKBOSIYRs4aMh-QdXnHm5MFMVRmqzOA6AB3oV7lLr8ipG2st7Ay-h5FJE-hJhNMOHHdO53AQkAwVNodobHc4UAhLYaCSbOfi8OjTJUZZhz-8FxxdOBD8gIhqGIbOBOKxRpYfJVX2SSOeZTUR2JRTfX5jU0HW-2K3QJgKMXRFV2ldUu9fZAP-kpLVymGXxSBWCcvYhtocuHMckaxT7ajK6XbuWXETM7IHz16Lcujczid_lsl-rxvhukMFgUS8AJbzEIqWRdUjIqO');"></div>
+</div>
+<span class="text-xs font-medium text-white/90">Elena</span>
+</div>
+<!-- Favorite 5 -->
+<div class="flex flex-col items-center gap-2 shrink-0">
+<div class="size-16 rounded-full border-2 border-primary/30 p-0.5">
+<div class="size-full rounded-full bg-cover bg-center" data-alt="User avatar of a designer" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBPkcwIKFz0h0oJacYb_twZ-qU4qfP5hZlWHYOMlZr_KJEypbrWLOYwCr0iHmyQMvVtRbyh2KGbg_Tf7PJoivjRu0_9QV_z1Io9eMtWVn8iwpFmKnS0qn2pU26EUFlQJrIJLAawm3mA6cBoQegCPDzGaTWgWcuctn9ZllCDS7UAYcnRYvlpWCVbMTOXdcWXF5BBCD_eAWDxvj2YB7bBlC79_nTF9eDrsjbAxJv88PIcGDLOqj3Et4SoLh-bxcPyTfZ1t5qRXv7MUHZ9');"></div>
+</div>
+<span class="text-xs font-medium text-white/90">Mark</span>
+</div>
+</div>
+</div>
+<!-- All Contacts Section -->
+<div class="space-y-6">
+<!-- Group A -->
+<div>
+<h3 class="text-primary text-sm font-bold px-1 mb-2">A</h3>
+<div class="space-y-2">
+<div class="glass-card flex items-center p-3 rounded-xl">
+<div class="size-12 rounded-full bg-cover bg-center mr-4" data-alt="Avatar of Alice" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBbFdkvOJEqV6VXhXi5ZKgdZM0IjQfnPOio1fH1MnhFCKuOYerSir2Du8VhAUQAe7GORnf_u35qGfSqNIw6f3hhSX-oST0SNstJrU-5CYEoHE4OSzor67VBePeDf_JW3q-Ge60suHdt3MQsmhAd5HZilNuMa8f1zU51CL4nYjtQVKiPA8NmvGckmYK43bqBD0yJU-_CKpjVqwQrAF4ReYEGN0e31LT_SRDg7LcKM1p5epoNEzHaIqGqgJAmnES_9NN1ecxYwNrQC0A8');"></div>
+<div class="flex-1">
+<h4 class="font-semibold text-white">Alice Johnson</h4>
+<p class="text-xs text-white/40">Available</p>
+</div>
+<button class="text-primary/80">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+</div>
+<div class="glass-card flex items-center p-3 rounded-xl">
+<div class="size-12 rounded-full bg-cover bg-center mr-4" data-alt="Avatar of Arthur" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDMbZ2BqcY5zDfVwort-KrPsEyoXOpYFgF-e9hoC1NtNf1UL6hRXkuX0mwAzBiQWePMgvhHfk5LGYIivZ29z0E4FM8h1c0M3yr6fXEKl32tW0C31LD5vtnoghj2WvhF7LyElLmPEUwayjYPrkeea7B_pInW8r67SVthQ6IVNRRHT5_jGzuUIMF6OTvR0-9v-8NoZMJ06bt0JhSQ6JhoBBR7Yf_6KYKN4nj4BXqXB-Q_YFKeksMOfjzY-HL1A3-8A2a3aSJbcC6i2_l8');"></div>
+<div class="flex-1">
+<h4 class="font-semibold text-white">Arthur Morgan</h4>
+<p class="text-xs text-white/40">Last seen 2h ago</p>
+</div>
+<button class="text-primary/80">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Group B -->
+<div>
+<h3 class="text-primary text-sm font-bold px-1 mb-2">B</h3>
+<div class="space-y-2">
+<div class="glass-card flex items-center p-3 rounded-xl">
+<div class="size-12 rounded-full bg-cover bg-center mr-4" data-alt="Avatar of Bella" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBj-msbjuVL3heUpQP8G1kD8AmjDAgqxJqlXnhcc6q9c97aPM4lOm6x-RDp42HtwdUxv1_HVKU1wheSSc26L8amTRNlevryccBk4trMmRPKAHtH48cpJGtStnXeo_tKNaM7tPzrIdnbC3mdLbgRef3j3MSZRCzpSQvkd_FlW3L3oq0pnc8w6M7e18qP6ymyQEucDy7kPNWi0mtWUv1OK7Q_VT-tG4O48svYzfwfEf_ovJB1cVa_W1Z6OBHOjTDp_6rq9UAUEapAdUSW');"></div>
+<div class="flex-1">
+<h4 class="font-semibold text-white">Bella Thorne</h4>
+<p class="text-xs text-white/40">Away</p>
+</div>
+<button class="text-primary/80">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+</div>
+<div class="glass-card flex items-center p-3 rounded-xl">
+<div class="size-12 rounded-full bg-cover bg-center mr-4" data-alt="Avatar of Brandon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAYp3JD6sCWSQWvlEGSwr1FqikYu88tnglsafE5g3TzFoqZRzkKLjFl9lrh0QhMtqiVywctM-URbwhXeHfGGQIGMsaol4MaucudletNOKheA2uFrKxr4lxJUvfAfbC2kYu6UJ8J7wXsVkiMOHH2iSXtSfdvpjUsgzESgLHrnwxERhRLAUA5_qfUF2z7MwTZUTsCMyj0w0v7XtEmcDGo1Hs9XHXol-kzd9O0H4XN5kiPFYgzdmu4d8BPK3jsBUAviffF3kugQpWMgKXJ');"></div>
+<div class="flex-1">
+<h4 class="font-semibold text-white">Brandon Lee</h4>
+<p class="text-xs text-white/40">Online</p>
+</div>
+<button class="text-primary/80">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Group C -->
+<div>
+<h3 class="text-primary text-sm font-bold px-1 mb-2">C</h3>
+<div class="space-y-2">
+<div class="glass-card flex items-center p-3 rounded-xl">
+<div class="size-12 rounded-full bg-cover bg-center mr-4" data-alt="Avatar of Chloe" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCxVWTsmteGp7_X74X47AAGxauJfAjhh0sDOjd9V0R7Fsx0A2dvmUTQhGOqEdodsog239qlU5MqbHC4-5EN2KiCs97En-_BOADxJefh0TUK3nOLBbrt6IqAbWAGJFXP9qgXfeKKV3KlRf8kjqR9OS6dh7vpPW1_dwTbW5_5RGWBoENqiGBzp1t_HXLu5OmJhDAg5KCRJHNC060dCqR3aHNJO6eSRbh17CuOQry4_MY6T6Reggs0w7Uom8Z-f-Iiejy_oXvuC-iXzz53');"></div>
+<div class="flex-1">
+<h4 class="font-semibold text-white">Chloe Grace</h4>
+<p class="text-xs text-white/40">Busy</p>
+</div>
+<button class="text-primary/80">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Glassy Bottom Navigation -->
+<div class="fixed bottom-0 left-0 right-0 p-4 z-50">
+<nav class="glass-nav mx-auto max-w-md rounded-2xl h-18 flex items-center justify-around px-2 py-3 shadow-2xl">
+<!-- Chat -->
+<button class="flex flex-col items-center justify-center flex-1 transition-all duration-200 text-white/40 hover:text-white">
+<span class="material-symbols-outlined text-2xl">forum</span>
+<span class="text-[10px] font-semibold mt-1 uppercase tracking-tight">Chat</span>
+</button>
+<!-- Contact (Active) -->
+<button class="flex flex-col items-center justify-center flex-1 transition-all duration-200 text-primary">
+<span class="material-symbols-outlined text-2xl fill-1">contacts</span>
+<span class="text-[10px] font-bold mt-1 uppercase tracking-tight">Contact</span>
+<div class="w-1.5 h-1.5 bg-primary rounded-full mt-0.5"></div>
+</button>
+<!-- Settings -->
+<button class="flex flex-col items-center justify-center flex-1 transition-all duration-200 text-white/40 hover:text-white">
+<span class="material-symbols-outlined text-2xl">settings</span>
+<span class="text-[10px] font-semibold mt-1 uppercase tracking-tight">Setting</span>
+</button>
+<!-- Profile -->
+<button class="flex flex-col items-center justify-center flex-1 transition-all duration-200 text-white/40 hover:text-white">
+<span class="material-symbols-outlined text-2xl">person</span>
+<span class="text-[10px] font-semibold mt-1 uppercase tracking-tight">Profile</span>
+</button>
+</nav>
+</div>
+<!-- Alphabet Scroller (Floating Right) -->
+<div class="fixed right-2 top-1/2 -translate-y-1/2 flex flex-col gap-1 items-center z-20">
+<span class="text-[9px] font-bold text-primary">#</span>
+<span class="text-[9px] font-bold text-primary">A</span>
+<span class="text-[9px] font-bold text-white/40">B</span>
+<span class="text-[9px] font-bold text-white/40">C</span>
+<span class="text-[9px] font-bold text-white/40">D</span>
+<span class="text-[9px] font-bold text-white/40">E</span>
+<span class="text-[9px] font-bold text-white/40">F</span>
+<span class="text-[9px] font-bold text-white/40">G</span>
+<span class="text-[9px] font-bold text-white/40">H</span>
+<span class="text-[9px] font-bold text-white/40">I</span>
+<span class="text-[9px] font-bold text-white/40">J</span>
+</div>
+</body></html>

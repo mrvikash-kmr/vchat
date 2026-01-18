@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>vChat Recent Chats</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "accent-start": "#ff8a00",
+                "accent-end": "#ff4d00",
+                "background-dark": "#0a0c10",
+                "card-bg": "rgba(255, 255, 255, 0.03)",
+              },
+              fontFamily: {
+                "display": ["Plus Jakarta Sans", "sans-serif"]
+              },
+              borderRadius: {
+                "DEFAULT": "1rem",
+                "lg": "2rem",
+                "xl": "3rem",
+                "full": "9999px"
+              },
+            },
+          },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer components {
+            .glass-card {
+                background: rgba(255, 255, 255, 0.03);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .accent-gradient {
+                background: linear-gradient(135deg, #ff8a00 0%, #ff4d00 100%);
+            }
+            .accent-text-gradient {
+                background: linear-gradient(135deg, #ff8a00 0%, #ff4d00 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            .online-glow {
+                box-shadow: 0 0 12px 2px rgba(255, 138, 0, 0.4);
+            }
+            .bottom-nav-glass {
+                background: rgba(10, 12, 16, 0.85);
+                backdrop-filter: blur(24px);
+                -webkit-backdrop-filter: blur(24px);
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+            }
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .no-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+            background-color: #0a0c10;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display text-white selection:bg-accent-start/30">
+<header class="sticky top-0 z-50 bg-background-dark/80 backdrop-blur-md px-6 pt-14 pb-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="accent-gradient size-9 rounded-xl flex items-center justify-center text-white shadow-lg shadow-accent-end/20">
+<span class="material-symbols-outlined text-[22px] font-bold">chat_bubble</span>
+</div>
+<h1 class="text-2xl font-bold tracking-tight">vChat</h1>
+</div>
+<div class="flex gap-3">
+<button class="size-10 rounded-full glass-card flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[22px]">search</span>
+</button>
+<button class="size-10 rounded-full glass-card flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[22px]">more_vert</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pb-32 px-4">
+<section class="py-6 overflow-x-auto no-scrollbar">
+<div class="flex gap-5 px-2">
+<div class="flex flex-col items-center gap-2.5 min-w-[68px]">
+<div class="size-[68px] rounded-full border-2 border-dashed border-white/10 flex items-center justify-center bg-white/5">
+<span class="material-symbols-outlined accent-text-gradient font-bold">add</span>
+</div>
+<span class="text-xs font-medium text-white/50">You</span>
+</div>
+<div class="flex flex-col items-center gap-2.5 min-w-[68px]">
+<div class="relative">
+<div class="size-[68px] rounded-full p-[2px] accent-gradient online-glow">
+<div class="w-full h-full rounded-full bg-center bg-cover border-[3px] border-background-dark" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAjUQCqZtLH8PZMD0Z3rHAv5fFP0Nokr5LLDZLf9sS9t-J5SZr2oenv3oj6wpHcimr9-EA2PaqGG6zOF12i2zRh158Fwae8yox-qktpAJq_clhW4MRGbn2rSRle34gdhQghbefsa60QNWayILvF1i54WiTes5Scido3OAbqLzIdmpZyFLGu_UFWUHK2yvhCh9ejUaygs-uFTvHQa5UBfn_1tuMukBsx30nkSgKgIcb2zphpFEfsuGRdFyo44Pm9sNdmN3w5V8V3tltW');"></div>
+</div>
+<div class="absolute bottom-0.5 right-0.5 size-4 bg-green-500 rounded-full border-2 border-background-dark shadow-sm"></div>
+</div>
+<span class="text-xs font-semibold">Sarah</span>
+</div>
+<div class="flex flex-col items-center gap-2.5 min-w-[68px]">
+<div class="relative">
+<div class="size-[68px] rounded-full p-[2px] accent-gradient online-glow">
+<div class="w-full h-full rounded-full bg-center bg-cover border-[3px] border-background-dark" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBpa6MrQo43lJv34Cd6WIPuYCtw-w2a0U2b_yWtPF0miFpC_jAgdgcwwdhcX4I2N5grcgjPhMlH3cLJyNXi8dKQ5sOfDyzz2iD_gTNQd2cYn45XW596GaCFoqC0C-NWzRvx0aKlUj7WAePQbXOreEINv0gI9USlHvoBjftl1Wz5lwwBOEjNqPA1TD9YmJKCsiXdkPxA6yCSsQiF9tgNoHqlUa2ra7H5twmt2SO8GLjPNnTVf5l45U4w4STgGpl5parjHNKHjZ4ZqvOk');"></div>
+</div>
+<div class="absolute bottom-0.5 right-0.5 size-4 bg-green-500 rounded-full border-2 border-background-dark shadow-sm"></div>
+</div>
+<span class="text-xs font-semibold">Jordan</span>
+</div>
+<div class="flex flex-col items-center gap-2.5 min-w-[68px]">
+<div class="relative">
+<div class="size-[68px] rounded-full p-[2px] accent-gradient online-glow">
+<div class="w-full h-full rounded-full bg-center bg-cover border-[3px] border-background-dark" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDZYS7Unm7526EH7Lem1OSa6OAajQsVorNusTr_HCikzhKEFHIdNmxZPxkwi3boDVj3ZEgPWLx7T76TVMV0c6JsZQZSXZ35elw74NYnoqcZhoBz9Jn3vvejn6dgsbChQ0d1NP6y19G2qTWP2K9OylX9I0k_8c8KEs-x3mNImMkr2YUB8uiYByDfzaDw5la_DxsUSZ2SosKnBHdG5ThdL9hrDohjhculxWD34bE5mwXcqfHc2Hx_TPOdcREe68po4QHI2oCupIpmpqRi');"></div>
+</div>
+<div class="absolute bottom-0.5 right-0.5 size-4 bg-green-500 rounded-full border-2 border-background-dark shadow-sm"></div>
+</div>
+<span class="text-xs font-semibold">Alex</span>
+</div>
+<div class="flex flex-col items-center gap-2.5 min-w-[68px]">
+<div class="relative">
+<div class="size-[68px] rounded-full p-[2px] accent-gradient online-glow">
+<div class="w-full h-full rounded-full bg-center bg-cover border-[3px] border-background-dark" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDCBkIoXq3pqlUkPnnLizWAFJsZJl9cxUO0IBD3li5P-ueJo1NboWdCxaflyBiM-Z-wi8YRrKPy4IWGoTbW1t0s9SVi_oBkTDaLihtJsUcEoHlGAMPcttH3TGflGnmBagexzzM5FJlRKXI0yxvAguIYrlNqLWwWOL8j871W-Rpg9ppaCe13XXb4bGDdPSgvN3KZsLYGTEPnriBnO7wLG_c5gnDKWhNYzqDrdoJLzR2yZAIKoMZ3vpCI8DFPlrU_rBe1Bwq-XlayhVfm');"></div>
+</div>
+<div class="absolute bottom-0.5 right-0.5 size-4 bg-green-500 rounded-full border-2 border-background-dark shadow-sm"></div>
+</div>
+<span class="text-xs font-semibold">Elena</span>
+</div>
+</div>
+</section>
+<section class="mt-4 flex flex-col gap-3.5">
+<h3 class="px-2 text-[11px] font-bold uppercase tracking-[0.15em] text-white/40 mb-1">Recent Chats</h3>
+<div class="glass-card rounded-[2.25rem] p-2.5 pr-6 flex items-center gap-4 cursor-pointer active:scale-[0.98] transition-all">
+<div class="relative shrink-0">
+<div class="size-[58px] rounded-full bg-center bg-cover border border-white/10" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAiKXawfvNgQh4vBj_7cFUmKhABLB0ubEFMWLKcdierjaI5ToulOvw8ijj_VSVu8ytlX5O7kM-sYCkQJHLPWXEa1C9VxSuVKT_XwL2SMDbvGVkVqC0z34Uucx1yIOXWb5Qya_f-C4IYA5dm5kkAHaajJawg0U147CLXrF2umJh_KUBMhbcv-JVi580XaVnr890vbR0Zfc-cKhYoCm2kzTeMpaeKw6TXEux1nNUqAeuwoTIhdgGsU5kmGdoSheuZcxMiv8EYsZ1RUPQR');"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-0.5">
+<h4 class="font-bold text-[16px] truncate">Jessica Miller</h4>
+<span class="text-[11px] font-bold accent-text-gradient uppercase">9:41 AM</span>
+</div>
+<p class="text-sm text-white/50 truncate font-medium">Can't wait for the event tonight! ✨</p>
+</div>
+<div class="shrink-0">
+<div class="accent-gradient size-[22px] rounded-full flex items-center justify-center text-[10px] font-bold text-white shadow-lg shadow-accent-end/30">2</div>
+</div>
+</div>
+<div class="glass-card rounded-[2.25rem] p-2.5 pr-6 flex items-center gap-4 cursor-pointer active:scale-[0.98] transition-all">
+<div class="relative shrink-0">
+<div class="size-[58px] rounded-full flex items-center justify-center bg-white/5 border border-white/10">
+<span class="material-symbols-outlined text-[28px] accent-text-gradient font-bold">groups</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-0.5">
+<h4 class="font-bold text-[16px] truncate">Design Team</h4>
+<span class="text-[11px] font-medium text-white/30 uppercase">8:12 AM</span>
+</div>
+<p class="text-sm text-white/50 truncate">The glassmorphism look is perfect.</p>
+</div>
+<div class="shrink-0">
+<span class="material-symbols-outlined text-[18px] accent-text-gradient font-bold">done_all</span>
+</div>
+</div>
+<div class="glass-card rounded-[2.25rem] p-2.5 pr-6 flex items-center gap-4 cursor-pointer active:scale-[0.98] transition-all">
+<div class="relative shrink-0">
+<div class="size-[58px] rounded-full bg-center bg-cover border border-white/10" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC3HmFvHjMn4U7SM5EgrwBc7d3PdPWtNG3mRpl6HGsmzPjW7ZstjLIsYrE7TX3GpqRgi4yax8um2N1keoFips0T2kpZXkWUeMzYPgIv_cB2AK2uzSq-ro9opamFMT0PJBcCqe8eCE9tuo2AY9RYumy9HseHCsUu1QsnJoTU9wt7S5AXiWW8TigU7P-WrZn0SUvb7bkt3-syW8FGHi_6j9kKGKj0OVkuysb0yi5cFQxgxn53AOK7jeKCe61e-2ICYgOErskBF8iUEI7_');"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-0.5">
+<h4 class="font-bold text-[16px] truncate">David Chen</h4>
+<span class="text-[11px] font-medium text-white/30 uppercase">Yesterday</span>
+</div>
+<p class="text-sm text-white/50 truncate">Sent a photo</p>
+</div>
+</div>
+<div class="glass-card rounded-[2.25rem] p-2.5 pr-6 flex items-center gap-4 cursor-pointer active:scale-[0.98] transition-all">
+<div class="relative shrink-0">
+<div class="size-[58px] rounded-full bg-center bg-cover border border-white/10" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAO94hkJSfG2a9XZR6QjflHhku9Z08D3ds8n1Vf3Tst3twTESIXAZFnaH94ipX8nORv3eDbhIN1SqG-N2rMb_50reLSPT8GpkZ7JmbBUcTE6qM9CLd2u1W9Wm6AFiNZZ3XfVpBUgX90-u6SU2NjjBl37unvcZD-R76FXNADzdGd8rxZlUpj72Po8xioRkVk7-TAzz2DWkBWsGx49gt4oIlJCLvq9W6wJr-UqlcxLVPujU5SPb3KPeUBpBI7W7IClCcr0ChUL05dqFDZ');"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-0.5">
+<h4 class="font-bold text-[16px] truncate">Maria Garcia</h4>
+<span class="text-[11px] font-bold accent-text-gradient uppercase">Tuesday</span>
+</div>
+<p class="text-sm text-white/50 truncate font-medium">I'll send the files by EOD.</p>
+</div>
+<div class="shrink-0">
+<div class="accent-gradient size-[22px] rounded-full flex items-center justify-center text-[10px] font-bold text-white shadow-lg shadow-accent-end/30">5</div>
+</div>
+</div>
+<div class="glass-card rounded-[2.25rem] p-2.5 pr-6 flex items-center gap-4 cursor-pointer active:scale-[0.98] transition-all">
+<div class="relative shrink-0">
+<div class="size-[58px] rounded-full bg-center bg-cover border border-white/10" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA91QNGloxl8KoqcD--dts5HAKFZAdmNgdsMwH7ObOhg97cMUxztGa5IhKiwuIJejpjqUsGc4C_dV8Su2PIADCq_x-UsSA0A8frkS-oPbDDsDM8AZwF0Uo226Nan-TvkFlKnAa7VBLeOoGZRhDNZ2mbJ6v9lLqrJZlA-fH_34b7EKKMkFFeI6JGalQR_HlXFpBqLBe0QMDe2K4dLUzMlCdRGfCwCjwGMDVojy3c-04YKn5-n9zcz5xabEZ8k4Jeq7brS9uy69glEUCi');"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-0.5">
+<h4 class="font-bold text-[16px] truncate">Tom Wilson</h4>
+<span class="text-[11px] font-medium text-white/30 uppercase">Monday</span>
+</div>
+<p class="text-sm text-white/50 truncate">Did you see the new update?</p>
+</div>
+</div>
+</section>
+</main>
+<button class="fixed right-6 bottom-32 size-15 w-[60px] h-[60px] rounded-[22px] accent-gradient text-white shadow-2xl shadow-accent-end/40 flex items-center justify-center z-40 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[30px] font-medium">edit_square</span>
+</button>
+<nav class="fixed bottom-0 left-0 right-0 z-50 px-8 pb-10 pt-4 bottom-nav-glass">
+<div class="flex items-center justify-between max-w-md mx-auto">
+<button class="flex flex-col items-center gap-1.5 group">
+<span class="material-symbols-outlined text-[26px] font-bold accent-text-gradient fill-1">chat_bubble</span>
+<span class="text-[10px] font-bold uppercase tracking-widest accent-text-gradient">Chats</span>
+</button>
+<button class="flex flex-col items-center gap-1.5 opacity-40 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[26px]">call</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Calls</span>
+</button>
+<button class="flex flex-col items-center gap-1.5 opacity-40 hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[26px]">explore</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Updates</span>
+</button>
+<button class="flex flex-col items-center gap-1.5 opacity-40 hover:opacity-100 transition-opacity">
+<div class="size-[26px] rounded-full bg-center bg-cover border border-white/20" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDqPkBUHb-AM8hRcZ_hcj4mPCbQdb957bwRthvCRxmvhuwTffubLCKaXZuSb0tGoNLCc7HYGs0tbptzuyWuzLxenNCl7NKsRiLR0FnwxadyRfOK4HvKgTv5t4ELcN01Tcv_DD0_ecQM-kZuIz1rOYyqueDA88j9OeYD_vopEyR1Mco5WZ-psUxTap44mcrrdmQ0r92Aigl7ZbCD6RNwubse8dp0FAQ4sfb6s457BVTOxu5WLGSCtx3wgJ3REnIw1US7GNMpvZJxPh5W');"></div>
+<span class="text-[10px] font-bold uppercase tracking-widest">Profile</span>
+</button>
+</div>
+</nav>
+<div class="fixed bottom-2 left-1/2 -translate-x-1/2 w-36 h-1.5 bg-white/10 rounded-full z-50 pointer-events-none"></div>
+
+</body></html>

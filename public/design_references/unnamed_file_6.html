@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>vChat Direct Message</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f47b25",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#120d0b",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-header {
+            background: rgba(18, 13, 11, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glass-input {
+            background: rgba(57, 47, 40, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .message-received {
+            background: rgba(57, 47, 40, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .message-sent {
+            background: linear-gradient(135deg, #f47b25 0%, #d43d1a 100%);
+            box-shadow: 0 4px 15px rgba(244, 123, 37, 0.3);
+        }
+        .mic-glow {
+            box-shadow: 0 0 15px rgba(244, 123, 37, 0.5);
+        }
+        .warm-bg-gradient {
+            background: radial-gradient(circle at top right, #2c1a12 0%, #120d0b 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white selection:bg-primary/30">
+<div class="relative flex h-screen w-full flex-col warm-bg-gradient overflow-hidden max-w-[430px] mx-auto shadow-2xl">
+<!-- Header -->
+<header class="glass-header sticky top-0 z-50 flex items-center justify-between px-4 pt-12 pb-4">
+<div class="flex items-center gap-3">
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<div class="relative">
+<div class="size-10 rounded-full bg-cover bg-center ring-2 ring-primary/20" data-alt="Profile picture of Alex Rivera" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBo_pSkY5fDHIchEuqUc7bidLK3qKr89z3t2NyXVhJ-4k-HR339Gs_BVEs7dHL7cUkTp0wHGYLEfcHTJ8PSlK74OR9tf-dgU-11zOgYfU00WpnoJWQ3Wn_krXYGi3QWLy37g9xjbxT4QixGMjShr8mVGJf7JlUrRqvUnCv1_1FrSnvu6FHlD21ykB5RUrelZfmsmkls9mwmYGnHaonQPM9OUi0q4kbC9SbUr21aIVpWdFoXG6dkz4DmQM5BHTESg8s5HwSbCeKhqe63");'>
+</div>
+<div class="absolute bottom-0 right-0 size-3 rounded-full bg-green-500 border-2 border-[#120d0b]"></div>
+</div>
+<div class="flex flex-col">
+<h2 class="text-sm font-bold leading-none">Alex Rivera</h2>
+<p class="text-[11px] text-primary font-medium mt-1">Online</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[22px]">videocam</span>
+</button>
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-[22px]">call</span>
+</button>
+</div>
+</header>
+<!-- Message Thread -->
+<main class="flex-1 overflow-y-auto px-4 py-6 flex flex-col gap-6 custom-scrollbar">
+<div class="flex justify-center">
+<span class="px-3 py-1 rounded-full bg-white/5 text-[11px] uppercase tracking-widest text-white/40 font-semibold">Today</span>
+</div>
+<!-- Received Message -->
+<div class="flex items-end gap-3 max-w-[85%]">
+<div class="size-8 rounded-full bg-cover bg-center shrink-0 mb-1" data-alt="Alex Rivera small avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCsrny21sqKqv9Xhi0G_IIwvbIOL8Z3eGpxuRY35ETLDzyrAXcgWi2w0F6cdAPqsEfXhFb9KgX30A9lAL6ELG4F-u-OQ5D0jo4nVoKqloOnmwqZmAAu8A0vrFz3samyknkkkdUqodjwJoowYB4Or556tKMojyZKFCFaH1ssBuWqzlNdMwoFk7SSzQN6hS-GF_VY48buZLdkGQrqTIOilExF9SWF4fCpIXQhJITG1G9-UUD61o6jiRMuFQ212S2ZdwHkJVswhInKlAra");'>
+</div>
+<div class="flex flex-col gap-1">
+<div class="message-received rounded-2xl rounded-bl-none px-4 py-3">
+<p class="text-[15px] leading-relaxed">Hey! Did you see the new glassmorphism designs for the update?</p>
+</div>
+<span class="text-[10px] text-white/30 ml-1">09:41 AM</span>
+</div>
+</div>
+<!-- Sent Message -->
+<div class="flex items-end gap-3 justify-end self-end max-w-[85%]">
+<div class="flex flex-col gap-1 items-end">
+<div class="message-sent rounded-2xl rounded-br-none px-4 py-3">
+<p class="text-[15px] leading-relaxed text-white">Yes, they look incredible. The orange-to-red gradient is a nice touch!</p>
+</div>
+<div class="flex items-center gap-1 mr-1">
+<span class="text-[10px] text-white/30">09:42 AM</span>
+<span class="material-symbols-outlined text-[14px] text-primary">done_all</span>
+</div>
+</div>
+</div>
+<!-- Received Message with Link -->
+<div class="flex items-end gap-3 max-w-[85%]">
+<div class="size-8 rounded-full bg-cover bg-center shrink-0 mb-1" data-alt="Alex Rivera small avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBCK7Gp4w8LGxcxjCxziak5ebIfPk6M6p_TBcPHO5nuBjONr94iwZOW-NbjDx2g9MBEocQ1L25lv16LoJu1Qy9XqAsO1Mk2G5TsHFkzIER7gCO_gXDdfl9PDACpYzlV8reYadYYWHuOmfe3walFhwWEDsXdinGoDgkkkYmSdXR_xcoVR2ByKMWpcIXlWKS4394u0nyNw4sYWN17uqv71fReiuV-0TQTex3FbmkwDkfi7K7_cm4Tc_q9IwVCvOdWjaGWEb3NJJy8l2Uh");'>
+</div>
+<div class="flex flex-col gap-1">
+<div class="message-received rounded-2xl rounded-bl-none px-4 py-3">
+<p class="text-[15px] leading-relaxed">Check out this reference I found. It matches our vibe perfectly.</p>
+<div class="mt-3 flex items-center gap-3 rounded-xl bg-white/5 p-2 border border-white/5">
+<div class="size-12 rounded-lg bg-cover bg-center shrink-0" data-alt="Abstract dark UI pattern thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDynciFh9uK1Y6BrmlaKG3yUvsThrqD63bEOUPrCqlZJnEOlfUhFxMaX4y2nTElMqvDfJG3lpwoC8ncXxoUlsU3W0_goCnGLgwbbLJbQjjRVFj37OTA_V2cRNOZUXgKgz9CziqEbZyB27PPY7V6yjMuI-BT30RY3mN5Wr5nniyvzZPhEGJRarr9K2ET6f4po5dIBfb2uKdpk7EKJ-MROH1KldfvNxu8WQkYgAJprMACAGxCKg8ypZFORntHrlrJaepiya18sd4dUHIO");'>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="text-xs font-semibold truncate">Premium Dark UI Patterns</p>
+<p class="text-[10px] text-white/40 truncate">vchat-design-resources.com</p>
+</div>
+</div>
+</div>
+<span class="text-[10px] text-white/30 ml-1">09:44 AM</span>
+</div>
+</div>
+<!-- Sent Message -->
+<div class="flex items-end gap-3 justify-end self-end max-w-[85%]">
+<div class="flex flex-col gap-1 items-end">
+<div class="message-sent rounded-2xl rounded-br-none px-4 py-3">
+<p class="text-[15px] leading-relaxed text-white">Love it. Let's implement that depth effect on the buttons.</p>
+</div>
+<div class="flex items-center gap-1 mr-1">
+<span class="text-[10px] text-white/30">09:45 AM</span>
+<span class="material-symbols-outlined text-[14px] text-primary">done_all</span>
+</div>
+</div>
+</div>
+<!-- Received Typing Indicator -->
+<div class="flex items-center gap-2 max-w-[85%] opacity-60">
+<div class="size-8 rounded-full bg-cover bg-center shrink-0" data-alt="Alex Rivera small avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuANeft23eAQ7PFsDMu0xiHkYMIfp64Sly9mr19CkcP6X3QcvX5DfGZ9ClnibUXJwcurYee7toLEHyQ1S21RokbyJZaI0u4QZpC7ClmzOPF8hmO8LuXKF6v9F0GiyeMevDPASlzW5i5diobuyRBffPr4oNTHCGFDHDSTzB9rzBa_gq6dJI_0PY3gQzk9lJr90GGeggrrjO12AYj4M00X2VSwpUtkWSsEZGJ5PtzuZo-3zww0ZkmZQC5OFFO5NyEMlMhNjWO5i8spPs_G");'>
+</div>
+<div class="flex gap-1 bg-white/5 px-3 py-2 rounded-full">
+<div class="size-1.5 rounded-full bg-white/40 animate-pulse"></div>
+<div class="size-1.5 rounded-full bg-white/40 animate-pulse" style="animation-delay: 0.2s"></div>
+<div class="size-1.5 rounded-full bg-white/40 animate-pulse" style="animation-delay: 0.4s"></div>
+</div>
+</div>
+</main>
+<!-- Floating Input Bar -->
+<footer class="p-4 pb-8">
+<div class="glass-input rounded-full h-14 flex items-center px-2 gap-2">
+<button class="flex size-10 items-center justify-center rounded-full text-white/60 hover:text-white transition-colors">
+<span class="material-symbols-outlined">mood</span>
+</button>
+<button class="flex size-10 items-center justify-center rounded-full text-white/60 hover:text-white transition-colors">
+<span class="material-symbols-outlined">attach_file</span>
+</button>
+<input class="flex-1 bg-transparent border-none text-sm focus:ring-0 placeholder:text-white/30 text-white" placeholder="Type a message..." type="text"/>
+<button class="mic-glow bg-primary size-10 rounded-full flex items-center justify-center text-white shrink-0 active:scale-90 transition-transform">
+<span class="material-symbols-outlined font-bold">mic</span>
+</button>
+</div>
+<!-- iOS Home Indicator Space -->
+<div class="h-2"></div>
+</footer>
+</div>
+</body></html>
